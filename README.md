@@ -1,2 +1,0 @@
-# djangoApp
-yoyo
