@@ -1,0 +1,46 @@
+{% extends "core/base.html" %}
+{% block title %}{{ item.name }}{% endblock title %}
+
+{% block content %}
+<div class="grid grid-cols-1 md:grid-cols-5  p-6">
+
+    <!-- Image Section -->
+    <div class="md:col-span-3 flex justify-center items-start">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}"
+             class="w-full max-w-md md:max-w-lg h-auto object-cover rounded-xl shadow-md" />
+    </div>
+
+    <!-- Details Section -->
+    <div class="md:col-span-2 p-8 bg-gray-100 rounded-xl shadow space-y-6 align-items-center">
+
+        <!-- Item Name -->
+        <h1 class="text-3xl font-bold text-gray-800">{{ item.name }}</h1>
+
+        <!-- Price -->
+        <p class="text-lg text-gray-600">
+            <strong class="text-gray-700">Price:</strong> {{ item.price }}
+        </p>
+
+        <!-- Seller -->
+        <p class="text-lg text-gray-600">
+            <strong class="text-gray-700">Seller:</strong> {{ item.created_by.username }}
+        </p>
+
+        <!-- Description -->
+        {% if item.description %}
+        <div>
+            <p class="text-lg text-gray-700 font-medium mb-1">Description:</p>
+            <p class="text-gray-600 leading-relaxed">{{ item.description }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Contact Button -->
+        <div>
+            <a href="#" class="inline-block px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl transition duration-200 ease-in-out">
+                Contact Seller
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
